@@ -9,37 +9,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@SuppressWarnings("serial")
 @WebServlet("*.calc")
 public class CalcController extends HttpServlet {
-	MappingInterface command = null; /*1. httpservlet을 구현한 인터페이스를 만든다. command 변수 사용*/
-	
-	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		MappingInterface command = null;
 		
-		String viewPage ="/WEB-INF/study2/mapping2";
+		String viewPage = "/WEB-INF/study2/mapping2";
 		
 		String uri = request.getRequestURI();
-		String com = uri.substring(uri.lastIndexOf("/"),uri.lastIndexOf("."));
+		String com = uri.substring(uri.lastIndexOf("/"), uri.lastIndexOf("."));
 		
-		if (com.equals("/Calc")) {
+		if(com.equals("/Calc")) {
 			viewPage += "/calc.jsp";
 		}
-		else if (com.equals("/CalcOk")) {
-			command =new CalcOkCommand();  /*인터페이스를 상속한 클래스를 만들고 변수 conn에 담음*/
-			command.execute(request, response); /*excute 명령어실행하면 request에 새로운 정보가 담긴다.*/
+		else if(com.equals("/CalcOk")) {
+			command = new CalcOkCommand();
+			command.excute(request, response);
 			viewPage += "/calcOk.jsp";
-			
 		}
-		else if (com.equals("/JuList")) {
-			command =new JuListCommand();  /*인터페이스를 상속한 클래스를 만들고 변수 conn에 담음*/
-			command.execute(request, response); /*excute 명령어실행하면 request에 새로운 정보가 담긴다.*/
+		else if(com.equals("/JuList")) {
+			command = new JuListCommand();
+			command.excute(request, response);
 			viewPage += "/juList.jsp";
-			
 		}
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
-		
 	}
 }

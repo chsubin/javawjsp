@@ -11,15 +11,16 @@
 <body>
 <p><br/></p>
 <div class="container">
-	<%
-		int i=0;
-		int tot = 0;
-		while(i<10){
-			i++;
-			tot+=i;
-			out.println(" 1 ~ "+i+" 까지의 합은 "+tot+" 입니다.<br/>");
-		};
-	%>
+  <%
+    int i = 0;
+    int tot = 0;
+    
+    while(i < 10) {
+    	i++;
+    	tot += i;
+    	out.println("1 ~ "+i+" 까지의 합은 "+tot+" 입니다.<br/>");
+    }
+  %>
 </div>
 <p><br/></p>
 </body>

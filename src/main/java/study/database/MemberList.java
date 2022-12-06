@@ -22,6 +22,5 @@ public class MemberList extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/study/1120_Database/memberList.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 }

@@ -39,17 +39,17 @@ public class GuListCommand implements GuestInterface {
 		// 6. 현재 화면에 보여주는 시작번호를 구한다.
 		int curScrStartNo = totRecCnt - startIndexNo;
 		
-		//블록페이징 처리....(3단계) -> 블록의 시작번호를 0번부터 처리했다.
+		// 블록페이징처리.....(3단계) -> 블록의 시작번호를 0번부터 처리했다.
 		// 1. 블록의 크기를 결정한다.(여기선 3으로 지정)
 		int blockSize = 3;
 		
-		// 2. 현재 페이지가 위치하고 있는 블록 번호를 구한다.(예: 1페이지는 0블록,3페이지는 1블록, 5페이지는 2블록)
-//		int curBlock = (pag%blockSize)==0? (pag/blockSize)-1 : (pag/blockSize);
-		int curBlock = (pag-1)/blockSize;
+		// 2. 현재페이지가 위치하고 있는 블록 번호를 구한다.(예:1페이지는 0블록, 3페이지는 0블록, 5페이지는 1블록)
+		// int curBlock = (pag % blockSize)==0 ? (pag / blockSize) - 1 : (pag / blockSize);
+		int curBlock = (pag - 1) / blockSize;
 		
 		// 3. 마지막블록을 구한다.
-//		int lastBlock =(totPage%blockSize)==0?(totPage / blockSize)-1:(totPage / blockSize);
-		int lastBlock = (totPage-1)/blockSize;
+		// int lastBlock = (totPage % blockSize)==0 ? (totPage / blockSize) - 1 : (totPage / blockSize);
+		int lastBlock = (totPage - 1) / blockSize;
 		
 		// ArrayList<GuestVO> vos = dao.getGuestList();
 		ArrayList<GuestVO> vos = dao.getGuestList(startIndexNo, pageSize);

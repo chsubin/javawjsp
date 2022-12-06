@@ -16,13 +16,13 @@ public class T2_LogOut extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String mid = (String) session.getAttribute("sMid");
-		
+
 		session.invalidate();
 		
 		PrintWriter out = response.getWriter();
-		out.println("<script>");
-		out.println("alert('"+mid+"님 로그아웃 되셨습니다.');");
-		out.println("location.href='"+request.getContextPath()+"/study/1118_storage_server/t2_Login.jsp';");
-		out.println("</script>");
+		out.print("<script>");
+		out.print("alert('"+mid+"님 로그아웃 되셨습니다.');");
+		out.print("location.href='"+request.getContextPath()+"/study/1118_storage_server/t2_Login.jsp';");
+		out.print("</script>");
 	}
 }

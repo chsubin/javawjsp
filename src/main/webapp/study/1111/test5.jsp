@@ -11,16 +11,16 @@
 <body>
 <p><br/></p>
 <div class="container">
-	<%! //jsp변수 선언부...
-		public int hap(int su1, int su2){
-			return su1+su2;
-		}
-	%>
+  <%!   // jsp변수 선언부...
+    public int hap(int su1, int su2) {
+	  	return su1 + su2;
+	  }
+  %>
 	<h2>두수의 합...</h2>
-	<%
-			int hap = hap(10,20);
-			out.println("두수의 합은 "+hap+"입니다.<br/>");
-	%>
+  <%
+    int hap = hap(10, 20);
+   	out.println("두수의 합은 <b>"+hap+"</b> 입니다.<br/>");
+  %>
 </div>
 <p><br/></p>
 </body>

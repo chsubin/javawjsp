@@ -9,16 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@SuppressWarnings("serial")
 @WebServlet("*.gu")
 public class GuestController extends HttpServlet {
+	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		GuestInterface command = null;
-		String viewPage ="/WEB-INF/guest";
+		String viewPage = "/WEB-INF/guest";
 		
-		String uri =request.getRequestURI();
-		String com = uri.substring(uri.lastIndexOf("/"),uri.lastIndexOf("."));
-		
+		String uri = request.getRequestURI();
+		String com = uri.substring(uri.lastIndexOf("/"), uri.lastIndexOf("."));
+
 		if(com.equals("/guList")) {
 			command = new GuListCommand();
 			command.execute(request, response);
@@ -50,10 +52,9 @@ public class GuestController extends HttpServlet {
 			command.execute(request, response);
 			viewPage = "/include/message.jsp";
 		}
-
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
-		
 	}
+	
 }

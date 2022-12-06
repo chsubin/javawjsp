@@ -12,19 +12,15 @@ public class PassOk2Command implements StudyInterface {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String mid = request.getParameter("mid")==null?"":request.getParameter("mid");
-		String pwd = request.getParameter("pwd")==null?"":request.getParameter("pwd");
+		String mid = request.getParameter("mid")==null ? "" : request.getParameter("mid");
+		String pwd = request.getParameter("pwd")==null ? "" : request.getParameter("pwd");
 		
 		SecurityUtil security = new SecurityUtil();
-		security.encryptSHA256(pwd);
 		String shaPwd = security.encryptSHA256(pwd);
-		 
+		
 		request.setAttribute("mid", mid);
 		request.setAttribute("pwd", pwd);
 		request.setAttribute("shaPwd", shaPwd);
-		
-		
-		
 	}
 
 }

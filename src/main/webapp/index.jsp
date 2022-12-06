@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <title>마리오 홈페이지</title>
+  <title>길동이네 홈페이지</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <jsp:include page="include/bs4.jsp"></jsp:include>
+  <jsp:include page="/include/bs4.jsp" />
   <style>
 	  .fakeimg {
 	    height: 200px;
@@ -14,8 +14,7 @@
   </style>
 </head>
 <body>
-
-<jsp:include page="/include/header.jsp"></jsp:include>
+<jsp:include page="/include/header.jsp" />
 <p><br/></p>
 <div class="container" style="margin-top:30px">
   <div class="row">
@@ -58,7 +57,6 @@
   </div>
 </div>
 <p><br/></p>
-<jsp:include page="include/footer.jsp"/>
+<jsp:include page="/include/footer.jsp" />
 </body>
 </html>
-

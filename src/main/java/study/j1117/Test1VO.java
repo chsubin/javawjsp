@@ -37,11 +37,9 @@ public class Test1VO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
 	@Override
 	public String toString() {
 		return "Test1VO [name=" + name + ", gender=" + gender + ", age=" + age + ", job=" + job + ", address=" + address
 				+ "]";
 	}
-	
 }

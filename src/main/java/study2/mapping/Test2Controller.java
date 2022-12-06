@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@SuppressWarnings("serial")
 @WebServlet("/mapping/Test2")
 public class Test2Controller extends HttpServlet {
 	@Override
@@ -21,10 +22,7 @@ public class Test2Controller extends HttpServlet {
 		Test2OkOk t2Ok = new Test2OkOk();
 		t2Ok.message();
 		
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/study2/mapping/test1.jsp");
 		dispatcher.forward(request, response);
-		
-
 	}
 }

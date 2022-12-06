@@ -1,4 +1,4 @@
-<%@page import="java.util.Date"%>
+<%@ page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,9 +12,9 @@
 <body>
 <p><br/></p>
 <div class="container">
-	<h2>오늘의 날짜?</h2>
-	<%--<%=new java.util.Date() %> --%>
-	<%= new Date() %>
+  <h2>오늘의 날짜?</h2>
+  <%-- <%=new java.util.Date() %> --%>
+  <%=new Date() %>
 </div>
 <p><br/></p>
 </body>

@@ -41,6 +41,22 @@
 		  <td style="text-align:right;"><a href="${ctp}/guest/guInput.gu" class="btn btn-sm btn-secondary">글쓰기</a></td>
 		</tr>
   </table>
+  <table class="table table-borderless m-0 p-0">
+		<tr>
+		  <td class="text-right">
+		    <!-- 첫페이지 / 이전페이지 / (현페이지번호/총페이지수) / 다음페이지 / 마지막페이지 -->
+		    <c:if test="${pag > 1}">
+		      [<a href="${ctp}/guList.gu?pag=1">첫페이지</a>]
+		      [<a href="${ctp}/guList.gu?pag=${pag-1}">이전페이지</a>]
+		    </c:if>
+		    ${pag}/${totPage}
+		    <c:if test="${pag < totPage}">
+		      [<a href="${ctp}/guList.gu?pag=${pag+1}">다음페이지</a>]
+		      [<a href="${ctp}/guList.gu?pag=${totPage}">마지막페이지</a>]
+		    </c:if>
+		  </td>
+		</tr>
+  </table>
   <c:set var="curScrStartNo" value="${curScrStartNo}"/>
   <c:forEach var="vo" items="${vos}" varStatus="st">
 	  <table class="table table-borderless mb-0">

@@ -16,18 +16,15 @@ public class MemberMain extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		
-		String mid = (String)session.getAttribute("sMid");
-		
+		String mid = (String) session.getAttribute("sMid");
 		
 		JusorokDAO dao = new JusorokDAO();
 		
-		JusorokVO vo =dao.getMemberSearch(mid);
+		JusorokVO vo = dao.getMemberSearch(mid);
 		
-		request.setAttribute("point",vo.getPoint());
+		request.setAttribute("point", vo.getPoint());
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/study/1120_Database/member.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 }

@@ -28,18 +28,8 @@
 <jsp:include page="/include/header.jsp" />
 <p><br/></p>
 <div class="container">
-	<!-- 첫페이지/이전블록/ 1(4) 2(5) 3(6) / 다음블록/마지막페이지 -->
-	<div class="text-center">
-		<c:if test="${pag>1}">[<a href="${ctp}/guList.gu?pag=1">첫페이지</a>]</c:if>
-		<c:if test="${curBlock>0}">[<a href="${ctp}/guList.gu?pag=${(curBlock-1)*blockSize+1}">이전블록</a>]</c:if>
-		<c:forEach var="i" begin="${curBlock*blockSize+1}" end="${curBlock*blockSize+blockSize}" varStatus="st">
-			<c:if test="${i<=totPage}">
-				[<a href="${ctp}/guList.gu?pag=${i}">${i}</a>]
-			</c:if>
-		</c:forEach>
-		<c:if test="${curBlock<lastBlock }">[<a href="${ctp}/guList.gu?pag=${(curBlock+1)*blockSize+1}">다음블록</a>]</c:if>
-		<c:if test="${pag<totPage}">[<a href="${ctp}/guList.gu?pag=${totPage}">마지막페이지</a>]</c:if>
-	</div>
+  
+
   <h2 class="text-center">방 명 록 리 스 트</h2>
   <br/>
   <table class="table table-borderless mb-0">
@@ -106,6 +96,19 @@
 	  <br/>
 	  <c:set var="curScrStartNo" value="${curScrStartNo - 1}"/>
 	</c:forEach>
+	<br/>
+  <!-- 첫페이지 / 이전블록 / 1(4) 2(5) 3(6) / 다음블록 / 마지막페이지 -->
+  <div class="text-center">
+    <c:if test="${pag > 1}">[<a href="${ctp}/guList.gu?pag=1">첫페이지</a>]</c:if>
+    <c:if test="${curBlock > 0}">[<a href="${ctp}/guList.gu?pag=${(curBlock-1)*blockSize + 1}">이전블록</a>]</c:if>
+    <c:forEach var="i" begin="${(curBlock)*blockSize + 1}" end="${(curBlock)*blockSize + blockSize}" varStatus="st">
+      <c:if test="${i <= totPage}">
+    		[<a href="${ctp}/guList.gu?pag=${i}">${i}</a>]
+    	</c:if>
+    </c:forEach>
+    <c:if test="${curBlock < lastBlock}">[<a href="${ctp}/guList.gu?pag=${(curBlock+1)*blockSize + 1}">다음블록</a>]</c:if>
+    <c:if test="${pag < totPage}">[<a href="${ctp}/guList.gu?pag=${totPage}">마지막페이지</a>]</c:if>
+  </div>
 </div>
 <p><br/></p>
 <jsp:include page="/include/footer.jsp" />
