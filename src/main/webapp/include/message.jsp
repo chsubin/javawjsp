@@ -48,6 +48,8 @@
     else if(msg == "boReplyDataOk") msg = "현재 게시글에 댓글이 존재하기에 현 게시글을 삭제할 수 없습니다.\n댓글을 삭제후 게시글을 삭제하세요.";
     else if(msg == "psdInputOk") msg = "자료실에 파일이 업로드 되었습니다.";
     else if(msg == "psdInputNo") msg = "자료실에 파일이 업로드 실패~~";
+    else if(msg == "pdsDeleteOk") msg = "자료실에 파일이 삭제되었습니다.";
+    else if(msg == "pdsDeleteNo") msg = "자료실에 파일이 삭제 실패~~";
     
     alert(msg);
     if(url != "") location.href = url;

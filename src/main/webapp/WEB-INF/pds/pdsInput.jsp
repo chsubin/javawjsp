@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-	String part = request.getParameter("part")==null?"":request.getParameter("part");
-	pageContext.setAttribute("part", part);
-%>
-<c:set var="ctp" value="${pageContext.request.contextPath}"></c:set>
+<c:set var="ctp" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,8 +23,8 @@
 	  }
 	  
 	  function deleteBox(cnt) {
-		  cnt--;
 	  	$("#fBox"+cnt).remove();
+		  cnt--;
 	  }
 	  
 	  function fCheck() {
@@ -54,19 +50,23 @@
 		  let fileSize = 0;
 		  for(let i=1; i<=cnt; i++) {
 			  let imsiName = 'fName' + i;
-			  let fName = document.getElementById(imsiName).value;
-			  if(fName != "") {
-				  fileSize += document.getElementById(imsiName).files[0].size;
-				  let ext = fName.substr(fName.lastIndexOf(".")+1);
-				  let uExt = ext.toUpperCase();
-				  if(uExt != "JPG" && uExt != "GIF" && uExt != "PNG" && uExt != "ZIP" && uExt != "HWP" && uExt != "PPT" && uExt != "PPTX") {
-					  alert("업로드 가능한 파일은 'JPG/GIF/PNG/ZIP/HWP/PPT' 입니다.");
+			  if(isNaN(document.getElementById(imsiName))) {	// 내용이 있을경우만 해당 if블록을 처리한다. 즉 파일이 없으면 수행하지 않는다.
+				  let fName = document.getElementById(imsiName).value;
+				  if(fName != "") {
+					  fileSize += document.getElementById(imsiName).files[0].size;
+					  let ext = fName.substr(fName.lastIndexOf(".")+1);
+					  let uExt = ext.toUpperCase();
+					  if(uExt != "JPG" && uExt != "GIF" && uExt != "PNG" && uExt != "ZIP" && uExt != "HWP" && uExt != "PPT" && uExt != "PPTX") {
+						  alert("업로드 가능한 파일은 'JPG/GIF/PNG/ZIP/HWP/PPT' 입니다.");
+						  return false;
+				    }
+				  }
+				  /* 
+				  else {
+					  alert("빈 파일박스에 파일을 선택해 주세요");
 					  return false;
-			    }
-			  }
-			  else {
-				  alert("빈 파일박스에 파일을 선택해 주세요");
-				  return false;
+				  }
+				   */
 			  }
 		  }
 		  if(fileSize > maxSize) {

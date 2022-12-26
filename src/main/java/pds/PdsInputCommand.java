@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 public class PdsInputCommand implements PdsInterface {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String part = request.getParameter("part")==null ? "전체" : request.getParameter("part");
+		
+		request.setAttribute("part", part);
 	}
 
 }

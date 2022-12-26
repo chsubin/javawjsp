@@ -5,7 +5,7 @@ public class PdsVO {
 	private String mid;
 	private String nickName;
 	private String fName;
-	private String fsName;
+	private String fSName;
 	private int fSize;
 	private String title;
 	private String part;
@@ -16,9 +16,8 @@ public class PdsVO {
 	private String content;
 	private String hostIp;
 	
-	private int day_diff; //새글처리를 위한 변수
-	private int hour_diff; //새글처리를 위한 변수
-	
+	private int day_diff;		// 새글처리를 위한 변수
+	private int hour_diff;	// 새글처리를 위한 변수
 	
 	public int getIdx() {
 		return idx;
@@ -44,11 +43,11 @@ public class PdsVO {
 	public void setfName(String fName) {
 		this.fName = fName;
 	}
-	public String getFsName() {
-		return fsName;
+	public String getfSName() {
+		return fSName;
 	}
-	public void setFsName(String fsName) {
-		this.fsName = fsName;
+	public void setfSName(String fSName) {
+		this.fSName = fSName;
 	}
 	public int getfSize() {
 		return fSize;
@@ -118,11 +117,9 @@ public class PdsVO {
 	}
 	@Override
 	public String toString() {
-		return "PdsVO [idx=" + idx + ", mid=" + mid + ", nickName=" + nickName + ", fName=" + fName + ", fsName=" + fsName
+		return "PdsVO [idx=" + idx + ", mid=" + mid + ", nickName=" + nickName + ", fName=" + fName + ", fSName=" + fSName
 				+ ", fSize=" + fSize + ", title=" + title + ", part=" + part + ", pwd=" + pwd + ", fDate=" + fDate
 				+ ", downNum=" + downNum + ", openSw=" + openSw + ", content=" + content + ", hostIp=" + hostIp + ", day_diff="
 				+ day_diff + ", hour_diff=" + hour_diff + "]";
 	}
-	
-
 }

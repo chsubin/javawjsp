@@ -21,7 +21,7 @@ public class PdsController extends HttpServlet {
 		String uri = request.getRequestURI();
 		String com = uri.substring(uri.lastIndexOf("/"), uri.lastIndexOf("."));
 		
-		// 세션이 끈겼다면 작업의 진행을 중지시키고 홈으로 전송시켜준다.
+		// 세션이 끈겼다면 작업의 진행을 중시시키고 홈으로 전송시켜준다.
 		HttpSession session = request.getSession();
 		int level = session.getAttribute("sLevel")==null ? 99 : (int) session.getAttribute("sLevel");
 		
@@ -50,6 +50,32 @@ public class PdsController extends HttpServlet {
 			command.execute(request, response);
 			return;
 		}
+		else if(com.equals("/pdsContent")) {
+			command = new PdsContentCommand();
+			command.execute(request, response);
+			viewPage += "/pdsContent.jsp";
+		}
+		else if(com.equals("/pdsDownNum")) {
+			command = new pdsDownNumCommand();
+			command.execute(request, response);
+			return;
+		}
+		else if(com.equals("/pdsPwdCheck")) {
+			command = new pdsPwdCheckCommand();
+			command.execute(request, response);
+			viewPage = "/include/message.jsp";
+		}
+		else if(com.equals("/pdsTotalDown")) {
+			command = new PdsTotalDownCommand();
+			command.execute(request, response);
+			return;                        
+		}
+		else if(com.equals("/pdsSearch")) {
+			command = new PdsListCommand();
+			command.execute(request, response);
+			viewPage += "/pdsList.jsp";
+		}
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

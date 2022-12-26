@@ -1,4 +1,4 @@
-package study2;
+package study2.pdstest;
 
 import java.io.IOException;
 
@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import admin.AdminDAO;
+import study2.StudyInterface;
 import study2.ajax.UserVO;
 
 public class UserInputCommand implements StudyInterface {
